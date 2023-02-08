@@ -11,9 +11,9 @@ app.get('/upload', (req, res) => {
 app.post('/upload', upload.single('image'), (req, res) => {
 
     const encoded = req.file.buffer.toString('base64');
-    console.log(encoded);
 
-    res.send('file uploaded here')
+
+    res.json({ encodedImage: encoded })
 })
 
 app.listen(PORT, () => console.log(`connected port:${PORT}`))
